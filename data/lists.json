@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "ac3e58a9-e7c1-4516-8f49-52fb06f8b9e7",
+    "title": "List 1",
+    "board_id": "a5d9707e-e74e-4e4a-92c6-0872c5e1945d"
+  },
+  {
+    "_id": "20086f09-2a5a-4d30-89b9-ad09e2c5139d",
+    "title": "List 2",
+    "board_id": "a5d9707e-e74e-4e4a-92c6-0872c5e1945d"
+  },
+  {
+    "_id": "6c6177fd-3071-4605-b0b5-7e1fce2de361",
+    "title": "List 3",
+    "board_id": "a5d9707e-e74e-4e4a-92c6-0872c5e1945d"
+  },
+  {
+    "_id": "e67955aa-7eb3-455d-ae42-847320f4aa10",
+    "title": "List 1",
+    "board_id": "509eab86-a23c-4030-94c1-b05192744d4c"
+  }
+]

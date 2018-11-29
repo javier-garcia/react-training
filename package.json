@@ -8,6 +8,7 @@
     "react-scripts": "2.1.1"
   },
   "scripts": {
+    "api": "node server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -21,5 +22,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4"
+  }
 }

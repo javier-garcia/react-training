@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "a5d9707e-e74e-4e4a-92c6-0872c5e1945d",
+    "title": "Board 1",
+    "description": "Description of the board 1"
+  },
+  {
+    "_id": "509eab86-a23c-4030-94c1-b05192744d4c",
+    "title": "Board 2",
+    "description": "Description of the board 2"
+  },
+  {
+    "_id": "7c6d7fa1-5442-4b51-aa9d-b4d9af5abf2d",
+    "title": "Board 3",
+    "description": "Description of the board 3"
+  },
+  {
+    "_id": "0c55d7f6-dc35-43ce-8a02-d6acc57603a8",
+    "title": "Board 4",
+    "description": "Description of the board 4"
+  }
+]
