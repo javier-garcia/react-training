@@ -1,1 +1,70 @@
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.boardsListView {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: rgb(0, 121, 191);
+}
+
+.boardsListView .boardsList {
+  display: flex;
+}
+
+.boardsListView .boardsList .boardCard {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0px 1px 34px -9px rgba(0, 0, 0, 0.3);
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 0 20px;
+}
+
+.boardsListView .boardsList .boardCard:hover {
+  box-shadow: 0px 12px 34px -9px rgba(0, 0, 0, 0.3);
+}
+
+.boardDetailView {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: rgb(0, 121, 191);
+}
+
+.boardDetailView .listsList {
+  display: flex;
+}
+
+.boardDetailView .listsList .list {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #ddd;
+  padding: 10px 20px;
+  margin: 0 20px;
+}
+
+.boardDetailView .listsList .list .card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0px 1px 34px -9px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 20px 0;
+}
+
+.boardsListView .boardsList .boardCard:hover {
+  box-shadow: 0px 12px 34px -9px rgba(0, 0, 0, 0.3);
+}
