@@ -50,5 +50,5 @@ app.get("/cards/:id", (req, res) => {
   }
 });
 
-console.log(`Starting server on port 3000`);
-app.listen(3000);
+console.log(`Starting server on port 3001`);
+app.listen(3001);

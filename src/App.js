@@ -1,14 +1,19 @@
 import React, { Component } from "react";
+import BoardsList from "./views/BoardsList";
+import BoardDetail from "./views/BoardDetail";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header>
-          <h1>Trello Clone</h1>
-        </header>
-      </div>
+      <Router>
+        <div className="App">
+          <Route path="/" exact component={BoardsList} />
+          <Route path="/board/:id" component={BoardDetail} />
+        </div>
+      </Router>
     );
   }
 }
