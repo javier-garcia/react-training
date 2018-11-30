@@ -1,9 +1,3 @@
-html,
-body {
-  height: 100%;
-  margin: 0;
-}
-
 .boardsListView {
   position: fixed;
   top: 0;
@@ -11,25 +5,32 @@ body {
   left: 0;
   right: 0;
   padding: 20px;
-  background-color: rgb(0, 121, 191);
+  background-color: #fff;
+}
+
+.boardsListView h1 {
+  color: #333;
 }
 
 .boardsListView .boardsList {
   display: flex;
+  max-width: 1444px;
+  margin: 0 auto;
 }
 
 .boardsListView .boardsList .boardCard {
-  border: 1px solid #ddd;
+  border: 1px solid rgb(0, 121, 255);
   border-radius: 6px;
-  background-color: #fff;
-  box-shadow: 0px 1px 34px -9px rgba(0, 0, 0, 0.3);
+  background-color: rgb(0, 121, 191);
+  box-shadow: 0px 1px 34px -9px rgba(0, 0, 0, 0.7);
   padding: 10px 20px;
   cursor: pointer;
   margin: 0 20px;
+  color: #fff;
 }
 
 .boardsListView .boardsList .boardCard:hover {
-  box-shadow: 0px 12px 34px -9px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 12px 34px -9px rgba(0, 0, 0, 0.5);
 }
 
 .boardDetailView {
@@ -42,6 +43,33 @@ body {
   background-color: rgb(0, 121, 191);
 }
 
+.boardDetailView .backButton {
+  color: #fff;
+}
+
+.boardDetailView h1 {
+  color: #fff;
+}
+
+.boardDetailView .listsList .toggleListCreationButton {
+  height: 60px;
+  min-width: 250px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  cursor: pointer;
+  outline: none;
+  width: 300px;
+  margin: 0 20px;
+}
+
+.boardDetailView .listsList .toggleListCreationButton:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
 .boardDetailView .listsList {
   display: flex;
 }
@@ -52,6 +80,7 @@ body {
   background-color: #ddd;
   padding: 10px 20px;
   margin: 0 20px;
+  width: 300px;
 }
 
 .boardDetailView .listsList .list .card {
@@ -64,7 +93,7 @@ body {
   margin: 20px 0;
 }
 
-.boardsListView .listsList .list .card:hover {
+.boardDetailView .listsList .list .card:hover {
   box-shadow: 0px 12px 34px -9px rgba(0, 0, 0, 0.3);
 }
 
@@ -85,11 +114,17 @@ body {
   text-decoration: underline;
 }
 
-.boardDetailView .listsList .list .cardCreation input {
+.boardDetailView .listsList .list .cardCreation textarea {
   padding: 20px;
   border: none;
   font-size: 19px;
   border-radius: 6px;
   display: block;
   outline: none;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-weight: bold;
+  max-width: 100%;
 }

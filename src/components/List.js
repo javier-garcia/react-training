@@ -7,6 +7,7 @@ class List extends React.Component {
     newCardTitle: ""
   };
 
+  formRef = React.createRef();
   inputRef = React.createRef();
 
   toggleCardCreation = () => {
@@ -51,22 +52,27 @@ class List extends React.Component {
           >
             Add card
           </button>
-        ) : null}
-        {this.state.cardCreation ? (
+        ) : (
           <div className="cardCreation">
-            <form onSubmit={this.onAddCard}>
-              <input
+            <form ref={this.formRef}>
+              <textarea
                 value={this.state.newCardTitle}
-                type="text"
                 placeholder="Card title..."
                 onChange={this.onNewCardTitleChange}
                 ref={this.inputRef}
+                onKeyPress={e => {
+                  if (e.which === 13 && !e.shiftKey) {
+                    e.preventDefault();
+                    this.onAddCard();
+                    return false;
+                  }
+                }}
               />
               <button type="submit">Add</button>
               <button onClick={this.toggleCardCreation}>X</button>
             </form>
           </div>
-        ) : null}
+        )}
       </div>
     );
   }

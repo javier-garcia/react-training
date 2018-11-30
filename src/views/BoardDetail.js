@@ -7,14 +7,58 @@ import boardsData from "../boardsData";
 
 class BoardDetail extends React.Component {
   state = {
-    board: null
+    board: null,
+    listCreation: false,
+    newListTitle: ""
   };
+
+  inputRef = React.createRef();
 
   componentDidMount() {
     this.setState({
       board: boardsData.find(board => board._id === this.props.match.params.id)
     });
   }
+
+  toggleListCreation = () => {
+    this.setState(
+      {
+        listCreation: !this.state.listCreation
+      },
+      () => {
+        if (this.state.listCreation) {
+          this.inputRef.current.focus();
+        }
+      }
+    );
+  };
+
+  onNewListTitleChange = event => {
+    this.setState({
+      newListTitle: event.target.value
+    });
+  };
+
+  onAddList = event => {
+    event.preventDefault();
+
+    const newList = {
+      _id: uuidv1(),
+      title: this.state.newListTitle,
+      board_id: this.state.board._id,
+      cards: []
+    };
+
+    const board = Object.assign({}, this.state.board);
+
+    board.lists.push(newList);
+
+    this.setState({
+      board,
+      listCreation: false,
+      newListTitle: ""
+    });
+  };
 
   onAddCard = (listId, newCardTitle) => {
     const newCard = {
@@ -38,7 +82,9 @@ class BoardDetail extends React.Component {
       <div className="boardDetailView">
         {this.state.board ? (
           <Fragment>
-            <Link to="/">Back to boards list</Link>
+            <Link className="backButton" to="/">
+              Back to boards list
+            </Link>
             <h1>Board title</h1>
             <div className="listsList">
               {this.state.board.lists.map(list => (
@@ -50,6 +96,28 @@ class BoardDetail extends React.Component {
                   onAddCard={this.onAddCard}
                 />
               ))}
+              {!this.state.listCreation ? (
+                <button
+                  className="toggleListCreationButton"
+                  onClick={this.toggleListCreation}
+                >
+                  Add new list
+                </button>
+              ) : (
+                <div className="listCreation">
+                  <form onSubmit={this.onAddList}>
+                    <input
+                      value={this.state.newListTitle}
+                      type="text"
+                      placeholder="List title..."
+                      onChange={this.onNewListTitleChange}
+                      ref={this.inputRef}
+                    />
+                    <button type="submit">Add</button>
+                    <button onClick={this.toggleListCreation}>X</button>
+                  </form>
+                </div>
+              )}
             </div>
           </Fragment>
         ) : (
