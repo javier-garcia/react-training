@@ -64,6 +64,32 @@ body {
   margin: 20px 0;
 }
 
-.boardsListView .boardsList .boardCard:hover {
+.boardsListView .listsList .list .card:hover {
   box-shadow: 0px 12px 34px -9px rgba(0, 0, 0, 0.3);
+}
+
+.boardDetailView .listsList .list .toggleCardCreationButton {
+  border: none;
+  background-color: transparent;
+  font-size: 17px;
+  font-weight: bold;
+  color: #999;
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.boardDetailView .listsList .list .toggleCardCreationButton:hover {
+  color: #333;
+  background-color: #ccc;
+  text-decoration: underline;
+}
+
+.boardDetailView .listsList .list .cardCreation input {
+  padding: 20px;
+  border: none;
+  font-size: 19px;
+  border-radius: 6px;
+  display: block;
+  outline: none;
 }

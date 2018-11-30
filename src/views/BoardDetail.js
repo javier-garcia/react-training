@@ -1,31 +1,63 @@
-import React from "react";
+import React, { Fragment } from "react";
+import uuidv1 from "uuid/v1";
 import { Link } from "react-router-dom";
 import List from "../components/List";
 
-const BoardDetail = () => {
-  return (
-    <div className="boardDetailView">
-      <Link to="/">Back to boards list</Link>
-      <h1>Board title</h1>
-      <div className="listsList">
-        <List
-          title="List 2 title"
-          cards={[
-            { title: "Card 1", excerpt: "This is the excerpt for card 1" },
-            { title: "Card 2", excerpt: "This is the excerpt for card 2" }
-          ]}
-        />
-        <List
-          title="List 1 title"
-          cards={[
-            { title: "Card 1", excerpt: "This is the excerpt for card 1" },
-            { title: "Card 2", excerpt: "This is the excerpt for card 2" },
-            { title: "Card 3", excerpt: "This is the excerpt for card 3" }
-          ]}
-        />
+import boardsData from "../boardsData";
+
+class BoardDetail extends React.Component {
+  state = {
+    board: null
+  };
+
+  componentDidMount() {
+    this.setState({
+      board: boardsData.find(board => board._id === this.props.match.params.id)
+    });
+  }
+
+  onAddCard = (listId, newCardTitle) => {
+    const newCard = {
+      _id: uuidv1(),
+      title: newCardTitle,
+      excerpt: "",
+      content: ""
+    };
+
+    const board = Object.assign({}, this.state.board);
+
+    board.lists.find(list => list._id === listId).cards.push(newCard);
+
+    this.setState({
+      board
+    });
+  };
+
+  render() {
+    return (
+      <div className="boardDetailView">
+        {this.state.board ? (
+          <Fragment>
+            <Link to="/">Back to boards list</Link>
+            <h1>Board title</h1>
+            <div className="listsList">
+              {this.state.board.lists.map(list => (
+                <List
+                  key={list._id}
+                  id={list._id}
+                  title={list.title}
+                  cards={list.cards}
+                  onAddCard={this.onAddCard}
+                />
+              ))}
+            </div>
+          </Fragment>
+        ) : (
+          <p>Board not found!!!</p>
+        )}
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default BoardDetail;

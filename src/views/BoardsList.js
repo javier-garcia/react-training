@@ -1,9 +1,11 @@
 import React from "react";
 import BoardCard from "../components/BoardCard";
 
+import boardsData from "../boardsData";
+
 const BoardsList = ({ history }) => {
-  function onBoardClick() {
-    history.push("board/a5d9707e-e74e-4e4a-92c6-0872c5e1945d");
+  function onBoardClick(boardId) {
+    history.push(`board/${boardId}`);
   }
 
   return (
@@ -11,26 +13,14 @@ const BoardsList = ({ history }) => {
       <header>
         <h1>Trello Clone</h1>
         <div className="boardsList">
-          <BoardCard
-            title="This is the title"
-            description="This is the description of the card."
-            onClick={onBoardClick}
-          />
-          <BoardCard
-            title="This is the title"
-            description="This is the description of the card."
-            onClick={onBoardClick}
-          />
-          <BoardCard
-            title="This is the title"
-            description="This is the description of the card."
-            onClick={onBoardClick}
-          />
-          <BoardCard
-            title="This is the title"
-            description="This is the description of the card."
-            onClick={onBoardClick}
-          />
+          {boardsData.map(board => (
+            <BoardCard
+              key={board._id}
+              title={board.title}
+              description={board.description}
+              onClick={() => onBoardClick(board._id)}
+            />
+          ))}
         </div>
       </header>
     </div>
